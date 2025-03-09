@@ -15,15 +15,18 @@ az config set defaults.group=learn-azure-cli
 ### Create VM with Vnet
 
 ```
-az vm create \
-  --resource-group learn-azure-cli \
-  --name vmName \ 
-  --image Ubuntu2204 \
-  --vnet-name default \  
-  --subnet default \    
-  --generate-ssh-keys \
-  --output json \
-  --verbose
+# Create PowerShell variable
+$vmName = "TutorialVM1"
+
+az vm create `
+    --resource-group rg-muf-test `
+    --name testvm `
+    --image Ubuntu2204 `
+    --vnet-name testvnet `
+    --subnet $subnetName `
+    --generate-ssh-keys `
+    --output json `
+    --verbose
 ```
 
 ### Delete the Resource Group to delete all the resources
